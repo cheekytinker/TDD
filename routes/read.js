@@ -1,4 +1,6 @@
 
 module.exports = function(req, res){
-    return res.json({ result : {   } });
+    return res.json({
+        key: req.params.key
+    });
 };
