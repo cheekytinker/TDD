@@ -1,7 +1,16 @@
+var phingValidator = require("../validators/phingValidator");
+
 module.exports = function(req, res){
+    if (!phingValidator.isValid(req.body)) {
+        return res
+            .status(400)
+            .json({
+                "message":"Phing is not valid"
+            });
+    }
     return res
         .status(201)
         .json({
-        key: req.params.key
+        key: "123"
     });
 };
