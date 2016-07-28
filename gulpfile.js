@@ -30,6 +30,6 @@ gulp.task('test', function() {
         });
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', ['test'],  function() {
     gulp.watch(['./test/**/*.js', './*.js', 'routes/**/*.js', 'validators/**/*.js'], ['test']);
 });
