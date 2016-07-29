@@ -1,7 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var path = require("path");
 app = express();
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/v1/phings/:key', require('./routes/read'));
 app.post('/v1/phings/', require('./routes/create'));
