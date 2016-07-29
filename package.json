@@ -19,7 +19,8 @@
   },
   "scripts": {
     "test": "gulp test",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
