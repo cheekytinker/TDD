@@ -12,8 +12,9 @@ describe('when reading a phing', function() {
     it('should return phing with key if read successful', function(done){
         supertest(app)
             .get("/v1/phings/123")
-            .expect(200, {
-                key: "123"
+            .expect(200)
+            .expect(function(res) {
+                return res.id != null && res.id.length > 1;
             })
             .end(done);
     })

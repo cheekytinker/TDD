@@ -1,7 +1,7 @@
 var supertest = require("supertest");
 var app = require("../../app");
 
-describe('when writing a phing', function() {
+describe('when creating a phing', function() {
     it('should return 201 if write successful', function (done) {
         supertest(app)
             .post("/v1/phings/")
@@ -18,12 +18,13 @@ describe('when writing a phing', function() {
             .end(done);
     });
 
-    it("should return key", function (done){
+    it("should return id", function (done){
         supertest(app)
             .post("/v1/phings/")
             .send({name:"myname"})
-            .expect(201, {
-                key:"123"
+            .expect(201)
+            .expect( function(res) {
+                return res.id != null && res.id.length > 0;
             })
             .end(done);
     });

@@ -9,7 +9,7 @@ app.get('/v1/phings/:key', require('./routes/read'));
 app.post('/v1/phings/', require('./routes/create'));
 
 if(!module.parent) {
-    app.listen(3000, function(){
+    app.listen(3001, function(){
         console.log('App is now listening v3');
     });
 }
