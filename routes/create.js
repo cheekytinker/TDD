@@ -4,19 +4,20 @@ var mongodb = require("mongodb");
 module.exports = function(req, res){
 
     if (!phingValidator.isValid(req.body)) {
-
-        return res
+        res
             .status(400)
             .json({
                 "message":"name not valid"
             });
+        return;
     }
     createMongoDoc(req.body, function(error, id) {
         var obj = { id:id };
         console.log(obj);
-        return res
+        res
             .status(201)
             .json(obj);
+        return;
     });
 
     function createMongoDoc(doc, callback) {

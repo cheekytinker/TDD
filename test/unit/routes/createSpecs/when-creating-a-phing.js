@@ -30,9 +30,11 @@ describe("routes/create specs", function() {
             };
 
             var status = sinon.spy(res, "status");
+            sinon.stub(res, "json", function(error, result) {
+                assert(status.withArgs(201).calledOnce);
+                done();
+            });
             create(req, res);
-            assert(status.withArgs(201).calledOnce);
-            done();
         });
 
         it("should return 400 if phing not valid", function(done) {
