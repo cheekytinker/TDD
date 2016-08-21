@@ -12,6 +12,7 @@
   "devDependencies": {
     "assert": "^1.4.1",
     "gulp": "^3.9.1",
+    "gulp-exit": "0.0.2",
     "gulp-mocha": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-util": "^3.0.7",
