@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 var plumber = require('gulp-plumber');
 var gutil = require('gulp-util');
+var exit = require('gulp-exit');
 
 var gulp_src = gulp.src;
 gulp.src = function() {
@@ -27,7 +28,8 @@ gulp.task('test', function() {
             if (!error) {
                 console.log('Tests succeeded! ');
             }
-        });
+        })
+        .pipe(exit());
 });
 
 gulp.task('watch', ['test'],  function() {
