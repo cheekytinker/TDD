@@ -25,19 +25,18 @@ module.exports = function(req, res){
         res
             .status(201)
             .json(obj);
-        return;
     });
 
     function createMongoDoc(doc, callback) {
-        var uri = 'mongodb://localhost:27017/phingnet';
-        var mongoClient = mongodb.MongoClient.connect(uri, function(error, db){
+        var uri = 'mongodb://mongo:27017/phingnet';
+        mongodb.MongoClient.connect(uri, function(error, db){
             if (error) {
                 console.log(error);
                 callback(error, null);
                 return;
             }
 
-            db.collection("phing").insertOne(doc, function(error, result) {
+            db.collection("phing").insertOne(doc, function(error) {
                 if (error) {
                     console.log(error);
                     callback(error, null);
