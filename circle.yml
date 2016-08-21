@@ -9,6 +9,9 @@ dependencies:
     - docker info
     - docker build -t cheekytinker/tdd:latest .
 
+hosts:
+  mongo: 127.0.0.1
+
 deployment:
   development:
     branch: /.*-feature$/
