@@ -12,6 +12,14 @@ module.exports = function(req, res){
         return;
     }
     createMongoDoc(req.body, function(error, id) {
+        if (error != null) {
+            res
+                .status(500)
+                .json({
+                    "message":"Problem:" + error
+                });
+            return;
+        }
         var obj = { id:id };
         console.log(obj);
         res
