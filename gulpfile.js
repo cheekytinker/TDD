@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var mocha = require('gulp-mocha');
+var mocha = require('gulp-spawn-mocha');
 var plumber = require('gulp-plumber');
 var gutil = require('gulp-util');
 var exit = require('gulp-exit');
@@ -11,7 +11,7 @@ gulp.src = function() {
                 // Output an error message
                 gutil.log(gutil.colors.red('Error (' + error.plugin + '): ' + error.message));
                 // emit the end event, to properly end the task
-                this.emit('end');
+                //this.emit('end');
             })
         );
 };
@@ -28,8 +28,7 @@ gulp.task('test', function() {
             if (!error) {
                 console.log('Tests succeeded! ');
             }
-        })
-        .pipe(exit());
+        });
 });
 
 gulp.task('watch', ['test'],  function() {
